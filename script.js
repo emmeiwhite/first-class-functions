@@ -13,7 +13,7 @@ function multiply(number){
     return number*2;
 }
 
-
+/////////////////////////////////
 let s = square;
 let c = cube;
 
@@ -41,4 +41,19 @@ let multiples = patterns_generator(multiply,arr);
 console.log(squares);
 console.log(cubes);
 console.log(multiples);
+
+// 3. Returning the function from a function : CLOSURE comes into play: It is also known as the HIGHER ORDER FUNCTION
+
+let outerFunction = ()=>{
+    let color = "Green"; // Variable of outerFunction
+
+    return innerFunction=()=>{
+        console.log(`COLOR from outer Function is ${color}`);
+    }
+}
+
+let innerFunctionReference = outerFunction();
+
+innerFunctionReference();
+// Even after the outerFunction had returned innerFunction we are still able to access the outerFunction variable color in our innerFunction.This behaviour is possible because of CLOSURE :)
 
